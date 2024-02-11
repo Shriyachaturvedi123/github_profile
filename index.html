@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- app.component.html -->
+<div>
+  <app-user-input></app-user-input>
+  <app-repo-list></app-repo-list>
+</div>
+
+<!-- user-input.component.html -->
+<form (submit)="searchRepositories()">
+  <input type="text" [(ngModel)]="username" placeholder="Enter GitHub username" required>
+  <button type="submit">Search</button>
+</form>
+
+
+<!-- repo-list.component.html -->
+<div *ngFor="let repo of repositories">
+  <h3>{{ repo.name }}</h3>
+  <p>{{ repo.description }}</p>
+  <!-- Add more details as needed -->
+</div>
+
+</body>
+<script src="github.ts"></script>
+</html>
